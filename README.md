@@ -8,7 +8,41 @@ then you should use Approval Tests.
 
 ## Usage
 ### Approval command
-mv tests/Example/approval/GildedRoseTest.testUpdateQuality.received.txt tests/Example/approval/GildedRoseTest.testUpdateQuality.approved.txt
+Create a test as in the [example](https://github.com/alexandrajulius/approval-tests/blob/main/tests/Example/GildedRoseTest.php) given in this repository.
+Specify the input for your logic, get the output and pass it into
+`Approvals::create()->verifyList($input, $output)`
+```php
+public function testUpdateQuality(): void
+{
+    $input = [
+        new Item('foo', 0, 1),
+    ];
+
+    $output = (new GildedRose())->updateQuality($input);
+
+    Approvals::create()->verifyList($input, $output);
+}
+```
+Then run phpunit:
+```
+$ vendor/bin/phpunit tests
+```
+Then you will see a new directory in your test directory with two files in it:
+```
+/approval
+  |__ approved.txt
+  |__ received.txt
+```
+The `approved.txt` is initially empty.\
+In the `received.txt` you will find the `$input` mapped to the `$output` such as:
+```
+[foo, 0, 1] -> [foo, -1, 0]
+```
+Approve the `$output` by copying the content of `received.txt` to `approved.txt` or use the following command:
+```
+$ mv tests/Example/approval/GildedRoseTest.testUpdateQuality.received.txt tests/Example/approval/GildedRoseTest.testUpdateQuality.approved.txt
+```
+When you run your test again, the `received.txt` will be gone and you will have your test output in the `approval.txt`.
 
 ## How to run
 Dependencies:
