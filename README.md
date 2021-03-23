@@ -8,9 +8,10 @@ then you should use Approval Tests.
 
 ## Usage
 ### Approval command
-Create a test as in the [example](https://github.com/alexandrajulius/approval-tests/blob/main/tests/Example/GildedRoseTest.php) given in this repository.
+Create a test as in the [example](https://github.com/alexandrajulius/approval-tests/blob/main/tests/Example/GildedRoseTest.php) given in this repository.\
 Specify the input for your logic, get the output and pass it into
-`Approvals::create()->verifyList($input, $output)`
+`Approvals::create()->verifyList($input, $output)`.\
+This method will handle two arrays of whatever you put in there:
 ```php
 public function testUpdateQuality(): void
 {
