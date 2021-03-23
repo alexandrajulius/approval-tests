@@ -24,7 +24,7 @@ final class ReceivedMapTest extends TestCase
 
      public function provideTestInput(): Generator
      {
-         yield 'for item Conjured' => [
+         yield 'for item foo' => [
              'input' => [
                  new Item('foo', 0, 1)
              ],
