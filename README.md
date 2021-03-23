@@ -9,7 +9,7 @@ then you should use Approval Tests.
 ## Usage
 ### Approval command
 Create a test as in the [example](https://github.com/alexandrajulius/approval-tests/blob/main/tests/Example/GildedRoseTest.php) given in this repository.\
-Specify the input for your logic, get the output and pass it into
+Specify the input for your logic, get the output and pass it into\
 `Approvals::create()->verifyList($input, $output)`.\
 This method will handle two arrays of whatever you put in there:
 ```php
@@ -43,7 +43,7 @@ Approve the `$output` by copying the content of `received.txt` to `approved.txt`
 ```
 $ mv tests/Example/approval/GildedRoseTest.testUpdateQuality.received.txt tests/Example/approval/GildedRoseTest.testUpdateQuality.approved.txt
 ```
-When you run your test again, the `received.txt` will be gone and you will have your test output in the `approval.txt`.
+When you run your test again, the `received.txt` will be gone, and you will have your test output in the `approval.txt`.
 
 ## How to run
 Dependencies:
