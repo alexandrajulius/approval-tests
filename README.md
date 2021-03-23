@@ -41,9 +41,11 @@ In the `received.txt` you will find the `$input` mapped to the `$output` such as
 ```
 Approve the `$output` by copying the content of `received.txt` to `approved.txt` or use the following command:
 ```
-$ mv tests/Example/approval/GildedRoseTest.testUpdateQuality.received.txt tests/Example/approval/GildedRoseTest.testUpdateQuality.approved.txt
+$ mv tests/Example/approval/received.txt tests/Example/approval/approved.txt
 ```
 When you run your test again, the `received.txt` will be gone, and you will have your test output in the `approval.txt`.
+Next you will just add more cases to your `$input` array in your test and approve the results. 
+No need to specify any output manually :)
 
 ## How to run
 Dependencies:
