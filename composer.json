@@ -1,0 +1,25 @@
+{
+  "name": "ahj/approval-tests",
+  "type": "library",
+  "description": "Provides approval tests ",
+  "keywords": ["clone", "copy", "duplicate", "object", "object graph"],
+  "license": "MIT",
+
+  "autoload": {
+    "psr-4": {
+      "AHJ\\ApprovalTests\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "AHJ\\ApprovalTests\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": "^7.1 || ^8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9"
+  }
+}
+
