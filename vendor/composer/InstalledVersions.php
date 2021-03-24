@@ -14,24 +14,24 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => '1.0.0+no-version-set',
-    'version' => '1.0.0.0',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => NULL,
+    'reference' => '1739e7372b3e21f90317c2a14fc724877491e96d',
     'name' => 'ahj/approval-tests',
   ),
   'versions' => 
   array (
     'ahj/approval-tests' => 
     array (
-      'pretty_version' => '1.0.0+no-version-set',
-      'version' => '1.0.0.0',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => NULL,
+      'reference' => '1739e7372b3e21f90317c2a14fc724877491e96d',
     ),
     'doctrine/instantiator' => 
     array (
@@ -165,12 +165,12 @@ private static $installed = array (
     ),
     'phpunit/phpunit' => 
     array (
-      'pretty_version' => '9.5.3',
-      'version' => '9.5.3.0',
+      'pretty_version' => '9.5.4',
+      'version' => '9.5.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '27241ac75fc37ecf862b6e002bf713b6566cbe41',
+      'reference' => 'c73c6737305e779771147af66c96ca6a7ed8a741',
     ),
     'sebastian/cli-parser' => 
     array (

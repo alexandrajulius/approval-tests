@@ -50,7 +50,7 @@ No need to specify any output manually :)
 ## How to run
 Dependencies:
 
-* [PHP 7.1+](http://php.net/downloads.php)
+* [PHP 7.4+](http://php.net/downloads.php)
 * [composer](https://getcomposer.org/)
 
 Clone the repository and run:
