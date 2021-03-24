@@ -7,7 +7,6 @@ and you are too lazy to specify the output for each input in your tests,\
 then you should use Approval Tests.
 
 ## Usage
-### Approval command
 Create a test as in the [example](https://github.com/alexandrajulius/approval-tests/blob/main/tests/Example/GildedRoseTest.php) given in this repository.\
 Specify the input for your logic, get the output and pass it into\
 `Approvals::create()->verifyList($input, $output)`.\
