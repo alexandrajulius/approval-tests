@@ -1,4 +1,14 @@
-[![CI](https://github.com/alexandrajulius/approval-tests/actions/workflows/ci.yml/badge.svg)](https://github.com/alexandrajulius/approval-tests/actions/workflows/ci.yml)
+<p align="center">
+  <a href="https://github.com/alexandrajulius/approval-tests/actions">
+    <img src="https://github.com/alexandrajulius/approval-tests/actions/workflows/ci.yml/badge.svg" alt="GitHub Build Status">
+  </a>
+  <a href="https://scrutinizer-ci.com/g/alexandrajulius/approval-tests/?branch=main">
+    <img src="https://scrutinizer-ci.com/g/alexandrajulius/approval-tests/badges/coverage.png?b=main" alt="Scrutinizer Code Quality">
+  </a>
+  <a href="https://scrutinizer-ci.com/g/alexandrajulius/approval-tests/?branch=main">
+    <img src="https://scrutinizer-ci.com/g/alexandrajulius/approval-tests/badges/quality-score.png?b=main" alt="Scrutinizer Code Coverage">
+  </a>
+</p>
 
 # Approval Tests
 
