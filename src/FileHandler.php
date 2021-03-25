@@ -9,7 +9,7 @@ final class FileHandler
     public function placeFile(string $path, string $fileName, string $content = null): void
     {
         $this->makeDir($path);
-        file_put_contents($path . '/'. $fileName, $content);
+        file_put_contents($path . '/' . $fileName, $content);
     }
 
     public function deleteReceived(FilePathResolverResult $filePathResolved): void

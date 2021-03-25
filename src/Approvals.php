@@ -8,9 +8,20 @@ use PHPUnit\Framework\Assert;
 
 final class Approvals
 {
-    protected FileHandler $fileHandler;
-    protected FilePathResolver $filePathResolver;
-    protected ReceivedMap $receiveMap;
+    private FileHandler $fileHandler;
+
+    private FilePathResolver $filePathResolver;
+
+    private ReceivedMap $receiveMap;
+
+    public static function create(): self
+    {
+        return new self(
+            new FileHandler(),
+            new FilePathResolver(),
+            new ReceivedMap()
+        );
+    }
 
     public function __construct(
         FileHandler $fileHandler,
@@ -20,15 +31,6 @@ final class Approvals
         $this->fileHandler = $fileHandler;
         $this->filePathResolver = $filePathResolver;
         $this->receiveMap = $receiveMap;
-    }
-
-    public static function create(): self
-    {
-        return new self(
-            new FileHandler(),
-            new FilePathResolver(),
-            new ReceivedMap()
-        );
     }
 
     public function verifyList(array $input, array $output): void

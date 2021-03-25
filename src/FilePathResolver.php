@@ -6,7 +6,7 @@ namespace AHJ\ApprovalTests;
 
 final class FilePathResolver
 {
-    const APPROVAL_DIR = 'approval';
+    public const APPROVAL_DIR = 'approval';
 
     public function resolve(): FilePathResolverResult
     {
@@ -27,6 +27,7 @@ final class FilePathResolver
         $endKey = count($pathParts) - 1;
 
         $approvalFilePath = '';
+
         for ($i = $startKey; $i <= $endKey; $i++) {
             $approvalFilePath .= $pathParts[$i] . '/';
         }

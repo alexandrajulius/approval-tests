@@ -35,3 +35,18 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest
       - name: Run phpstan/phpstan on internal code
         run: ./vendor/bin/phpstan analyse src tests
+  coding-guidelines:
+    name: Coding Guidelines
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          coverage: none
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress --no-suggest
+      - name: Run friendsofphp/php-cs-fixer
+        run: PHP_CS_FIXER_IGNORE_ENV=true ./vendor/bin/php-cs-fixer fix --diff-format=udiff --dry-run --show-progress=dots --using-cache=no --verbose

@@ -7,13 +7,13 @@ namespace AHJ\ApprovalTests;
 final class FilePathResolverResult
 {
     public string $dirPath;
+
     public string $fileName;
 
     public function __construct(
         string $dirPath,
         string $fileName
-    )
-    {
+    ) {
         $this->dirPath = $dirPath;
         $this->fileName = $fileName;
     }

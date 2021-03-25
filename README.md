@@ -12,7 +12,8 @@ then you should use Approval Tests.
 Create a test as in the [example](https://github.com/alexandrajulius/approval-tests/blob/main/tests/Example/GildedRoseTest.php) given in this repository.\
 Specify the input for your logic, get the output and pass it into\
 `Approvals::create()->verifyList($input, $output)`.\
-This method will handle two arrays of whatever you put in there:
+This method will handle two arrays of whatever you put in there 
+and internally perform an `Assert::assertEquals($approved, $received)`:
 ```php
 public function testUpdateQuality(): void
 {

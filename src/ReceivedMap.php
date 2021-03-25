@@ -9,6 +9,7 @@ final class ReceivedMap
     public function create(array $input, array $output): string
     {
         $received = [];
+
         foreach ($input as $inputKey => $inputValue) {
             $received[$inputKey] = '[' . $inputValue . '] -> ';
         }

@@ -24,12 +24,12 @@ final class FilePathResolverTest extends TestCase
     {
         yield 'simple test file path' => [
             'testFilePath' => '/Users/alex/Dev/approval-tests/tests/Example/GildedRoseTest.php',
-            'expected' => 'tests/Example/approval'
+            'expected' => 'tests/Example/approval',
         ];
 
         yield 'nested test file path' => [
             'testFilePath' => '/Users/alex/Dev/approval-tests/tests/Example/ExtraCase/GildedRoseTest.php',
-            'expected' => 'tests/Example/ExtraCase/approval'
+            'expected' => 'tests/Example/ExtraCase/approval',
         ];
     }
 
@@ -47,13 +47,13 @@ final class FilePathResolverTest extends TestCase
         yield 'name in simple test file path' => [
             'testFileName' => '/Users/alex/Dev/approval-tests/tests/Example/GildedRoseTest.php',
             'testMethodName' => 'testUpdateQuality',
-            'expected' => 'GildedRoseTest.testUpdateQuality'
+            'expected' => 'GildedRoseTest.testUpdateQuality',
         ];
 
         yield 'name in nested test file path' => [
             'testFileName' => '/Users/alex/Dev/approval-tests/tests/ExtraCase/Example/ExtraCase/GildedRoseTest.php',
             'testMethodName' => 'testFunkyMethodInExtraCase',
-            'expected' => 'GildedRoseTest.testFunkyMethodInExtraCase'
+            'expected' => 'GildedRoseTest.testFunkyMethodInExtraCase',
         ];
     }
 }
