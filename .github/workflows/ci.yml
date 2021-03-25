@@ -34,4 +34,4 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress --no-suggest
       - name: Run phpstan/phpstan on internal code
-        run: .vendor/bin/phpstan analyse src tests
+        run: ./vendor/bin/phpstan analyse src tests
