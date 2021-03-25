@@ -59,7 +59,11 @@ final class Approvals
     {
         $approved = file_get_contents($filePathResolved->getApprovedFile());
 
-        Assert::assertEquals(trim($approved), trim($received));
+        Assert::assertEquals(
+            trim($approved),
+            trim($received),
+            'To approve run: mv ' . $filePathResolved->getReceivedFile() . ' ' . $filePathResolved->getApprovedFile()
+        );
 
         $this->fileHandler->deleteReceived($filePathResolved);
     }
