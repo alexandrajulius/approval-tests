@@ -1,3 +1,5 @@
+[![CI](https://github.com/alexandrajulius/approval-tests/actions/workflows/ci.yml/badge.svg)](https://github.com/alexandrajulius/approval-tests/actions/workflows/ci.yml)
+
 # Approval Tests
 
 ## Why to use Approval Tests
