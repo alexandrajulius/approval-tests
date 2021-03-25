@@ -38,10 +38,13 @@ In the `received.txt` you will find the `$input` mapped to the `$output` such as
 ```
 [foo, 0, 1] -> [foo, -1, 0]
 ```
-Approve the `$output` by copying the content of `received.txt` to `approved.txt` or use the following command:
+Approve the `$output` by copying the content of `received.txt` to `approved.txt` or use the command from your console:
 ```
 $ mv tests/Example/approval/received.txt tests/Example/approval/approved.txt
 ```
+
+<img width="1119" alt="Screenshot 2021-03-25 at 13 02 12" src="https://user-images.githubusercontent.com/23189414/112470024-7261e480-8d6a-11eb-9da9-d901b70ba2d0.png">
+
 When you run your test again, the `received.txt` will be gone, and you will have your test output in the `approval.txt`.
 Next you will just add more cases to your `$input` array in your test and approve the results. 
 No need to specify any output manually :)
