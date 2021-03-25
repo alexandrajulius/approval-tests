@@ -62,5 +62,7 @@ final class GildedRose
                 }
                 return $item;
         }
+
+        return $item;
     }
 }
