@@ -54,7 +54,7 @@ final class Approvals
             );
         }
 
-        self::verify($received, $filePathResolved);
+        $this->verify($received, $filePathResolved);
     }
 
     private function verify(string $received, FilePathResolverResult $filePathResolved): void
