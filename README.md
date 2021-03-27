@@ -56,7 +56,7 @@ Approve the `$output` by copying the content of `received.txt` to `approved.txt`
 $ mv tests/Example/approval/received.txt tests/Example/approval/approved.txt
 ```
 
-<img width="1119" alt="Screenshot 2021-03-25 at 13 02 12" src="https://user-images.githubusercontent.com/23189414/112470024-7261e480-8d6a-11eb-9da9-d901b70ba2d0.png">
+<img width="1157" alt="Screenshot 2021-03-27 at 09 46 18" src="https://user-images.githubusercontent.com/23189414/112715691-1f12a200-8ee2-11eb-9ef5-89d8d4eed9d3.png">
 
 When you run your test again, the `received.txt` will be gone, and you will have your test output in the `approval.txt`.
 Next you will just add more cases to your `$input` array in your test and approve the results. 
