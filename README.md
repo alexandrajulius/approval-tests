@@ -112,6 +112,7 @@ and dump it into the received.txt as such:
 Dependencies:
 
 * [PHP 7.4+](http://php.net/downloads.php)
+* [phpunit 9+](https://phpunit.de/getting-started/phpunit-9.html)
 * [composer](https://getcomposer.org/)
 
 Clone the repository and run:
@@ -123,10 +124,13 @@ $ composer install
 Dependencies:
 
 * [phpunit 9+](https://phpunit.de/getting-started/phpunit-9.html)
+* [php-code-coverage 9+](https://php.watch/articles/php-code-coverage-comparison)
+* [phpstan](https://phpstan.org/user-guide/getting-started)
+* [php-cs-fixer](https://cs.symfony.com/)
 
-Run test suites in root directory
+Run all tests, code coverage and code quality checks in your root directory with
 ```
-$ vendor/bin/phpunit tests --testdox --colors
+$ composer test-all
 ```
 
 ## Author Contact

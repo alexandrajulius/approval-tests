@@ -16,7 +16,8 @@ final class ReceivedMap
                 $received[$inputKey] .= implode(', ', $inputValue);
                 $received[$inputKey] .= '] -> ';
             }
-            // TODO: make sure this works for objects which do not have a __toString method
+            // TODO: type object can only be used in concatenation if it has a __toString method,
+            // make it work for other objects
             if ('object' === gettype($inputValue)) {
                 $received[$inputKey] = '[' . $inputValue . '] -> ';
             }
