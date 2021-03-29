@@ -6,6 +6,7 @@ namespace AHJ\ApprovalTests\Tests\Unit;
 
 use AHJ\ApprovalTests\ReceivedMap;
 use AHJ\ApprovalTests\Tests\Example\Item;
+use AHJ\ApprovalTests\Tests\Example\RandomObject;
 use Generator;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
@@ -34,7 +35,20 @@ final class ReceivedMapTest extends TestCase
             'expected' => '[foo, 0, 1] -> [foo, -1, 0]',
         ];
 
-        yield 'for item foo' => [
+        yield 'for object without __toString method' => [
+            'input' => [
+                new RandomObject('foo', 0),
+                new RandomObject('foo', 10),
+            ],
+            'output' => [
+                new RandomObject('bar', 10),
+                new RandomObject('bar', 100),
+            ],
+            'expected' => '[foo, 0] -> [bar, 10]
+[foo, 10] -> [bar, 100]',
+        ];
+
+        yield 'for object with __toString method' => [
             'input' => [
                 new Item('foo', 0, 1),
             ],
@@ -44,7 +58,7 @@ final class ReceivedMapTest extends TestCase
             'expected' => '[foo, 0, 1] -> [foo, -1, 0]',
         ];
 
-        yield 'for item bar' => [
+        yield 'for more objects with __toString method' => [
             'input' => [
                 new Item('bar', 1, 1),
                 new Item('bar', 1, 0),

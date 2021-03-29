@@ -12,26 +12,21 @@ final class ReceivedMap
 
         foreach ($input as $inputKey => $inputValue) {
             if ('array' === gettype($inputValue)) {
-                $received[$inputKey] = '[';
-                $received[$inputKey] .= implode(', ', $inputValue);
-                $received[$inputKey] .= '] -> ';
+                $received[$inputKey] = '[' . implode(', ', $inputValue) . '] -> ';
             }
-            // TODO: type object can only be used in concatenation if it has a __toString method,
-            // make it work for other objects
+
             if ('object' === gettype($inputValue)) {
-                $received[$inputKey] = '[' . $inputValue . '] -> ';
+                $received[$inputKey] = '[' . implode(', ', get_object_vars($inputValue)) . '] -> ';
             }
         }
 
         foreach ($output as $outputKey => $outputValue) {
             if ('array' === gettype($outputValue)) {
-                $received[$outputKey] = $received[$outputKey] . '[';
-                $received[$outputKey] .= implode(', ', $outputValue);
-                $received[$outputKey] .= ']';
+                $received[$outputKey] = $received[$outputKey] . '[' . implode(', ', $outputValue) . ']';
             }
 
             if ('object' === gettype($outputValue)) {
-                $received[$outputKey] = $received[$outputKey] . '[' . $outputValue . ']';
+                $received[$outputKey] = $received[$outputKey] . '[' . implode(', ', get_object_vars($outputValue)) . ']';
             }
         }
 
