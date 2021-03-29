@@ -16,8 +16,6 @@ final class GildedRoseTest extends TestCase
             new Item('bar', 1, 1),
             new Item('zero', 1, 0),
             new Item('zorg', 1, 100),
-            new Item('zorg', 1, 50),
-            new Item('knarf', 1, 50),
         ];
 
         $actual = (new GildedRose())->updateQuality($input);

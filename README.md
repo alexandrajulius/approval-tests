@@ -13,7 +13,7 @@
 # Approval Tests
 
 ## Why to use Approval Tests
-Given you have some logic that receives input and creates output,\
+Given you have (possibly legacy) code that receives input and creates output,\
 and you want to cover it with unit tests,\
 and you are too lazy to specify the output for each input in your tests,\
 then you should use Approval Tests.
@@ -61,6 +61,52 @@ $ mv tests/Example/approval/received.txt tests/Example/approval/approved.txt
 When you run your test again, the `received.txt` will be gone, and you will have your test output in the `approval.txt`.
 Next you will just add more cases to your `$input` array in your test and approve the results. 
 No need to specify any output manually :)
+
+## Testing Combinations
+### When to use Combinations
+You have a function that takes, for example, three arguments, 
+and you want to test its behaviour with a bunch of different values 
+for each of those arguments.
+
+Specify the input arguments of the method you want to test.
+Use arrays as in the example to add all values the arguments can take.
+Then pass those arguments along with an anonymous function into
+`CombinationApprovals::create()->verifyAllCombinations()`
+
+```php
+public function testUpdateQualityWithCombinations(): void
+{
+    $arguments = [
+        ['foo', 'bar'],
+        [3, 5],
+        [15],
+    ];
+
+    CombinationApprovals::create()->verifyAllCombinations(
+        function (string $name, int $sellIn, int $quantity) {
+            $items = [new Item($name, $sellIn, $quantity)];
+    
+            return (new GildedRose())->updateQuality($items);
+        },
+        $arguments
+    );
+}
+```
+
+The anonymous function specifies how the input arguments should be passed 
+into the logic that you want to test. Also, it must return the output of 
+your tested logic, so `verifyAllCombinations()` can dump it into
+the received.txt and compare it to the latest approved.txt.
+
+For the above example, the Approval tool would create all possible combinations
+of the specified input values, map those to the related output of the tested logic
+and dump it into the received.txt as such:
+```
+[foo, 5, 15] -> [foo, 4, 14]
+[foo, 3, 15] -> [foo, 2, 14]
+[bar, 5, 15] -> [bar, 2, 16]
+[bar, 3, 15] -> [bar, 4, 16]
+```
 
 ## How to run
 Dependencies:

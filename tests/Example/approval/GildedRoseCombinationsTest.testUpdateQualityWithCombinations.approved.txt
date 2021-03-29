@@ -1,0 +1,2 @@
+[Aged Brie, 3, 15] -> [Aged Brie, 2, 16]
+[foo, 3, 15] -> [foo, 2, 14]

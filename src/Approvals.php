@@ -67,6 +67,7 @@ final class Approvals
             'To approve run: mv ' . $filePathResolved->getReceivedFile() . ' ' . $filePathResolved->getApprovedFile()
         );
 
+        # delete the received file here because we know it is equal to the approved file
         $this->fileHandler->deleteReceived($filePathResolved);
     }
 }

@@ -2,5 +2,3 @@
 [bar, 1, 1] -> [bar, 0, 0]
 [zero, 1, 0] -> [zero, 0, 0]
 [zorg, 1, 100] -> [zorg, 0, 99]
-[zorg, 1, 50] -> [zorg, 0, 49]
-[knarf, 1, 50] -> [knarf, 0, 49]

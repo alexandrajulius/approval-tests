@@ -11,11 +11,27 @@ final class ReceivedMap
         $received = [];
 
         foreach ($input as $inputKey => $inputValue) {
-            $received[$inputKey] = '[' . $inputValue . '] -> ';
+            if ('array' === gettype($inputValue)) {
+                $received[$inputKey] = '[';
+                $received[$inputKey] .= implode(', ', $inputValue);
+                $received[$inputKey] .= '] -> ';
+            }
+            // TODO: make sure this works for objects which do not have a __toString method
+            if ('object' === gettype($inputValue)) {
+                $received[$inputKey] = '[' . $inputValue . '] -> ';
+            }
         }
 
         foreach ($output as $outputKey => $outputValue) {
-            $received[$outputKey] = $received[$outputKey] . '[' . $outputValue . ']';
+            if ('array' === gettype($outputValue)) {
+                $received[$outputKey] = $received[$outputKey] . '[';
+                $received[$outputKey] .= implode(', ', $outputValue);
+                $received[$outputKey] .= ']';
+            }
+
+            if ('object' === gettype($outputValue)) {
+                $received[$outputKey] = $received[$outputKey] . '[' . $outputValue . ']';
+            }
         }
 
         return implode("\n", $received);
