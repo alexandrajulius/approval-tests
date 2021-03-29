@@ -27,5 +27,4 @@ final class RandomObject
     {
         return $this->fileNumber;
     }
-
 }
