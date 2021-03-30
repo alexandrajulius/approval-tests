@@ -7,6 +7,7 @@ namespace AHJ\ApprovalTests\Tests\Unit;
 use AHJ\ApprovalTests\ReceivedMap;
 use AHJ\ApprovalTests\Tests\Example\Item;
 use AHJ\ApprovalTests\Tests\Example\RandomObject;
+use AHJ\ApprovalTests\Tests\Example\YetAnotherRandomObject;
 use Generator;
 use PHPUnit\Framework\Assert;
 use PHPUnit\Framework\TestCase;
@@ -47,6 +48,30 @@ final class ReceivedMapTest extends TestCase
             'expected' => '[foo, 0] -> [bar, 10]
 [foo, 10] -> [bar, 100]',
         ];
+
+        //TODO: create receveivedMaps for nested arrays and objects
+        yield 'for nested objects' => [
+            'input' => [
+                new YetAnotherRandomObject('foo', 0, new RandomObject('bar', 10)),
+                new YetAnotherRandomObject('foo', 10, new RandomObject('bar', 100)),
+            ],
+            'output' => [
+                new YetAnotherRandomObject('foo', 10, new RandomObject('bar', 60)),
+                new YetAnotherRandomObject('foo', 100, new RandomObject('bar', 600)),
+            ],
+            'expected' => '[foo, 0, [bar, 10]] -> [foo, 10, [bar, 60]]
+[foo, 10, [bar, 100]] -> [foo, 100, [bar, 600]]',
+        ];
+        /*
+                  yield 'for nested arrays' => [
+                      'input' => [
+                          ['foo', 0, 1, [100, 1000]],
+                      ],
+                      'output' => [
+                          ['foo', -1, 0, [600, 6000]],
+                      ],
+                      'expected' => '[foo, 0, 1, 100, 1000] -> [foo, -1, 0, 600, 6000]',
+                  ];*/
 
         yield 'for object with __toString method' => [
             'input' => [
