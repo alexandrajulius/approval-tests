@@ -176,19 +176,13 @@ and dump it into the received.txt as such:
 [foo, 0, 15] -> [foo, -1, 13]
 ```
 
-## How to run
-Dependencies:
+## Dependencies
 
 * [PHP 7.4+](http://php.net/downloads.php)
 * [phpunit 9+](https://phpunit.de/getting-started/phpunit-9.html)
 * [composer](https://getcomposer.org/)
 
-Clone the repository and run:
-```
-$ composer install
-```
-
-## How to test
+### Test it
 Dependencies:
 
 * [phpunit 9+](https://phpunit.de/getting-started/phpunit-9.html)
@@ -200,6 +194,3 @@ Run all tests, code coverage and code quality checks in your root directory with
 ```
 $ composer test-all
 ```
-
-## Author Contact
-[alexandra.julius@gmail.com](mailto:alexandra.julius@gmail.com)
