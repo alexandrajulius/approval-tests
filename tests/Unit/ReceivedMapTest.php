@@ -36,6 +36,14 @@ final class ReceivedMapTest extends TestCase
             'expected' => '[foo, 0, 1] -> [foo, -1, 0]',
         ];
 
+        yield 'empty input' => [
+            'input' => [],
+            'output' => [
+                ['foo', -1, 0],
+            ],
+            'expected' => '[foo, -1, 0]',
+        ];
+
         yield 'object without __toString method' => [
             'input' => [
                 new RandomObject('foo', 0, []),

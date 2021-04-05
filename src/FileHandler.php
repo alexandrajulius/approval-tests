@@ -6,6 +6,13 @@ namespace AHJ\ApprovalTests;
 
 final class FileHandler
 {
+    /**
+     * @param string $path     Example:
+     *                         'tests/Example/approval'
+     * @param string $fileName
+     *                         Example:
+     *                         'GildedRoseTest.testUpdateQuality.received.txt'
+     */
     public function placeFile(string $path, string $fileName, string $content = null): void
     {
         $this->makeDir($path);
@@ -21,6 +28,6 @@ final class FileHandler
 
     private function makeDir(string $path): bool
     {
-        return is_dir($path) || mkdir($path);
+        return is_dir($path) || mkdir($path, 0777, true);
     }
 }

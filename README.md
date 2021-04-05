@@ -36,6 +36,10 @@ public function testUpdateQuality(): void
     Approvals::create()->verifyList($input, $output);
 }
 ```
+You can pass an empty array as `$input` if your logic doesn't require input such as
+```php
+    Approvals::create()->verifyList([], $output);
+```
 Then run phpunit:
 ```
 $ vendor/bin/phpunit tests
@@ -80,9 +84,9 @@ Then pass those arguments along with an anonymous function into
 public function testUpdateQualityWithCombinations(): void
 {
     $arguments = [
-        ['foo', 'bar'],
-        range(0, 3),
-        [15, 20, 25],
+        ['foo', 'bar'], # values for $name
+        range(0, 3),    # values for $sellIn
+        [15, 20, 25],   # values for $quantity
     ];
 
     CombinationApprovals::create()->verifyAllCombinations(

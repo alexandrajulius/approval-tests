@@ -8,17 +8,23 @@ final class ReceivedMap
 {
     public function create(array $input, array $output): string
     {
-        $received = [];
+        $receivedMap = [];
 
-        foreach ($input as $inputKey => $inputValue) {
-            $received[$inputKey] = '[' . $this->serializeMixedType($inputValue) . '] -> ';
+        if (!empty($input)) {
+            foreach ($input as $inputKey => $inputValue) {
+                $receivedMap[$inputKey] = '[' . $this->serializeMixedType($inputValue) . '] -> ';
+            }
         }
 
         foreach ($output as $outputKey => $outputValue) {
-            $received[$outputKey] = $received[$outputKey] . '[' . $this->serializeMixedType($outputValue) . ']';
+            if (!empty($input)) {
+                $receivedMap[$outputKey] = $receivedMap[$outputKey] . '[' . $this->serializeMixedType($outputValue) . ']';
+            } else {
+                $receivedMap[$outputKey] = '[' . $this->serializeMixedType($outputValue) . ']';
+            }
         }
 
-        return $this->cleanAndFlatten($received);
+        return $this->cleanAndFlatten($receivedMap);
     }
 
     private function serializeMixedType($inputValue, string $currentConcatenations = ''): string
@@ -41,16 +47,14 @@ final class ReceivedMap
     }
 
     /**
-     * @param array $received
-     *                        Example:
+     * @param array $received Example:
      *                        [
      *                        [0] => '[foo, 0, [bar, 10, ]] -> [foo, 10, [bar, 60, ]]',
      *                        [1] => '[foo, 10, [bar, 100, ]] -> [foo, 100, [bar, 600, ]]'
      *                        ]
      *
-     * @return string
-     *                Example:
-     *                '[foo, 0, [bar, 10]] -> [foo, 10, [bar, 60]]
+     * @return string Example:
+     *                '[foo, 0, [bar, 10]] -> [foo, 10, [bar, 60]]\n
      *                [foo, 10, [bar, 100]] -> [foo, 100, [bar, 600]]'
      */
     private function cleanAndFlatten(array $received): string
