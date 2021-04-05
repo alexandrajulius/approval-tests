@@ -10,12 +10,16 @@ final class RandomObject
 
     public int $fileNumber;
 
+    public array $randomList;
+
     public function __construct(
         string $dirPath,
-        int $fileNumber
+        int $fileNumber,
+        array $randomList
     ) {
         $this->dirPath = $dirPath;
         $this->fileNumber = $fileNumber;
+        $this->randomList = $randomList;
     }
 
     public function getDirPath(): string
@@ -26,5 +30,10 @@ final class RandomObject
     public function getFileNumber(): int
     {
         return $this->fileNumber;
+    }
+
+    public function getRandomList(): array
+    {
+        return $this->randomList;
     }
 }

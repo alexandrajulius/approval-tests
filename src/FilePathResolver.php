@@ -24,6 +24,7 @@ final class FilePathResolver
     {
         $pathParts = explode('/', pathinfo($pathToTestFile)['dirname']);
         $flip = array_flip($pathParts);
+        // TODO: guard from undefined index
         $startKey = $flip['tests'];
         $endKey = count($pathParts) - 1;
 

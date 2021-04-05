@@ -11,10 +11,11 @@ final class GildedRoseCombinationsTest extends TestCase
 {
     public function testUpdateQualityWithCombinations(): void
     {
+        //TODO: provide possibility to use range
         $arguments = [
-            ['foo', 'Aged Brie'],
-            [3],
-            [15],
+            ['foo', 'Aged Brie', 'zorg'],
+            [3, 9, 10],
+            [15, 8, 11],
         ];
 
         CombinationApprovals::create()->verifyAllCombinations(

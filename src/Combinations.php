@@ -6,7 +6,6 @@ namespace AHJ\ApprovalTests;
 
 final class Combinations
 {
-    // TODO: this can be optimised by using Generators, can recursions yield?
     public function getAllCombinations(array $arguments, array $currentCombination = []): array
     {
         $combinations = [];
