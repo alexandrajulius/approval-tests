@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace AHJ\ApprovalTests;
 
-use Exception;
+use RuntimeException;
 
 final class FilePathResolver
 {
@@ -25,15 +25,15 @@ final class FilePathResolver
         $pathParts = explode('/', pathinfo($pathToTestFile)['dirname']);
         $flip = array_flip($pathParts);
 
-        try {
-            $startKey = $flip['tests'];
-        } catch (Exception $exception) {
-            throw new Exception(sprintf(
+        if (!array_key_exists('tests', $flip)) {
+            throw new RuntimeException(sprintf(
                 'Failed to identify the testing directory you are using in "%s", 
                 expecting testing directory name "/tests".',
                 $pathToTestFile
             ));
         }
+
+        $startKey = $flip['tests'];
 
         $endKey = count($pathParts) - 1;
 
@@ -64,7 +64,7 @@ final class FilePathResolver
             }
         }
 
-        throw new Exception(sprintf(
+        throw new RuntimeException(sprintf(
             'Failed to identify the testing file or method you are using.'
         ));
     }
