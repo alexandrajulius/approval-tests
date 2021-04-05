@@ -181,16 +181,3 @@ and dump it into the received.txt as such:
 * [PHP 7.4+](http://php.net/downloads.php)
 * [phpunit 9+](https://phpunit.de/getting-started/phpunit-9.html)
 * [composer](https://getcomposer.org/)
-
-### Test it
-Dependencies:
-
-* [phpunit 9+](https://phpunit.de/getting-started/phpunit-9.html)
-* [php-code-coverage 9+](https://php.watch/articles/php-code-coverage-comparison)
-* [phpstan](https://phpstan.org/user-guide/getting-started)
-* [php-cs-fixer](https://cs.symfony.com/)
-
-Run all tests, code coverage and code quality checks in your root directory with
-```
-$ composer test-all
-```
