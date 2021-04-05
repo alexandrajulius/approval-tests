@@ -7,6 +7,9 @@
   </a>
   <a href="https://scrutinizer-ci.com/g/alexandrajulius/approval-tests/?branch=main">
     <img src="https://scrutinizer-ci.com/g/alexandrajulius/approval-tests/badges/quality-score.png?b=main" alt="Scrutinizer Code Coverage">
+  </a> 
+  <a href="https://packagist.org/packages/ahj/approval-tests">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Approval Tests on packagist.org">
   </a>
 </p>
 
@@ -18,6 +21,11 @@ and you want to cover it with regression tests,\
 and you don't want to specify the output for each input in your unit tests,\
 and you don't want to adjust all the tested output after you changed the logic,\
 then you should use Approval Tests.
+
+## Installation
+```
+composer require ahj/approval-tests --dev
+```
 
 ## Usage
 Find an example on how to do Approval Testing under [/tests/Example](https://github.com/alexandrajulius/approval-tests/tree/main/tests/Example). 
