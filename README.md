@@ -19,7 +19,7 @@ and you are too lazy to specify the output for each input in your unit tests,\
 then you should use Approval Tests.
 
 ## Usage
-Create a test as in the [example](https://github.com/alexandrajulius/approval-tests/blob/main/tests/Example/GildedRoseTest.php) given in this repository.\
+Create a test as in this repo's [example](https://github.com/alexandrajulius/approval-tests/blob/main/tests/Example/GildedRoseTest.php) given in this repository.\
 Specify the input for your logic, get the output and pass it into\
 `Approvals::create()->verifyList($input, $output)`.\
 This method will handle two arrays of whatever you put in there 
@@ -68,7 +68,8 @@ You have a function that takes, for example, three arguments,
 and you want to test its behaviour with a bunch of different values 
 for each of those arguments.
 
-Copy the below code example and adjust the number and type of inputs that you have.
+Copy the below code or use this repo's [example](https://github.com/alexandrajulius/approval-tests/blob/main/tests/Example/GildedRoseCombinationsTest.php) 
+and adjust the number and type of inputs that you have.
 Specify the input arguments of the method you want to test in `$arguments`:
 Either list the values that the arguments can take explicitly in arrays 
 or use `range()`.
