@@ -11,10 +11,9 @@ final class GildedRoseCombinationsTest extends TestCase
 {
     public function testUpdateQualityWithCombinations(): void
     {
-        //TODO: provide possibility to use range
         $arguments = [
             ['foo', 'Aged Brie', 'zorg'],
-            [3, 9, 10],
+            range(0, 5),
             [15, 8, 11],
         ];
 

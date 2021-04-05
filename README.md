@@ -69,7 +69,7 @@ and you want to test its behaviour with a bunch of different values
 for each of those arguments.
 
 Specify the input arguments of the method you want to test.
-Use arrays as in the example to add all values the arguments can take.
+Use explicit arrays or `range()` as in the example to add all values the arguments can take.
 Then pass those arguments along with an anonymous function into
 `CombinationApprovals::create()->verifyAllCombinations()`
 
@@ -78,8 +78,8 @@ public function testUpdateQualityWithCombinations(): void
 {
     $arguments = [
         ['foo', 'bar'],
-        [3, 5],
-        [15],
+        range(0, 5),
+        [15, 20, 25],
     ];
 
     CombinationApprovals::create()->verifyAllCombinations(
