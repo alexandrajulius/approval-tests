@@ -24,8 +24,17 @@ final class FilePathResolver
     {
         $pathParts = explode('/', pathinfo($pathToTestFile)['dirname']);
         $flip = array_flip($pathParts);
-        // TODO: guard from undefined index
-        $startKey = $flip['tests'];
+
+        try {
+            $startKey = $flip['tests'];
+        } catch (Exception $exception) {
+            throw new Exception(sprintf(
+                'Failed to identify the testing directory you are using in "%s", 
+                expecting testing directory name "/tests".',
+                $pathToTestFile
+            ));
+        }
+
         $endKey = count($pathParts) - 1;
 
         $approvalFilePath = '';
