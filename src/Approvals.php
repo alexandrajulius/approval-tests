@@ -33,10 +33,10 @@ final class Approvals
         $this->receiveMap = $receiveMap;
     }
 
-    public function verifyList(array $input, array $output): void
+    public function verifyList(array $input, array $output, bool $plain = false): void
     {
         $filePathResolved = $this->filePathResolver->resolve();
-        $received = $this->receiveMap->create($input, $output);
+        $received = $this->receiveMap->create($input, $output, $plain);
 
         # always create the received file
         $this->fileHandler->placeFile(

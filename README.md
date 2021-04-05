@@ -48,10 +48,6 @@ public function testUpdateQuality(): void
 `verifyList($input, $output)` will create a map of the received data and compare it to 
 the previous version of this data by performing an `Assert::assertEquals($approved, $received)`.
 
-Pass an empty array as `$input` if your logic doesn't require input:
-```php
-    Approvals::create()->verifyList([], $output);
-```
 Then run phpunit:
 ```
 $ vendor/bin/phpunit tests
@@ -77,6 +73,27 @@ $ mv tests/Example/approval/received.txt tests/Example/approval/approved.txt
 When you run your test again, the `received.txt` will be gone, and you will have your test output in the `approval.txt`.
 Next you will just add more cases to your `$input` array in your test and approve the results. 
 No need to specify any output manually :)
+
+### Options
+
+Pass an empty array as `$input` if your logic doesn't require input:
+```php
+    Approvals::create()->verifyList([], $output);
+```
+
+In the `received.txt` you will only show the `$output` such as:
+```
+[foo, -1, 0]
+```
+
+Pass `$plain = true` as third argument to `verifyList()` in order to have 
+non formated output in the `received.txt`:
+```php
+    Approvals::create()->verifyList([], $output, true);
+```
+
+
+
 
 ## Testing Combinations
 ### When to use Combinations

@@ -6,7 +6,10 @@ namespace AHJ\ApprovalTests;
 
 final class ReceivedMap
 {
-    public function create(array $input, array $output): string
+    /**
+     * @param array|string $output
+     */
+    public function create(array $input, $output, bool $plain = false): string
     {
         $receivedMap = [];
 
@@ -16,12 +19,16 @@ final class ReceivedMap
             }
         }
 
-        foreach ($output as $outputKey => $outputValue) {
-            if (!empty($input)) {
-                $receivedMap[$outputKey] = $receivedMap[$outputKey] . '[' . $this->serializeMixedType($outputValue) . ']';
-            } else {
-                $receivedMap[$outputKey] = '[' . $this->serializeMixedType($outputValue) . ']';
+        if (!$plain) {
+            foreach ($output as $outputKey => $outputValue) {
+                if (!empty($input)) {
+                    $receivedMap[$outputKey] = $receivedMap[$outputKey] . '[' . $this->serializeMixedType($outputValue) . ']';
+                } else {
+                    $receivedMap[$outputKey] = '[' . $this->serializeMixedType($outputValue) . ']';
+                }
             }
+        } else {
+            return 'string' === gettype($output) ? $output : json_encode($output);
         }
 
         return $this->cleanAndFlatten($receivedMap);
