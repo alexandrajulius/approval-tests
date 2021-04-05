@@ -14,8 +14,8 @@
 
 ## Why to use Approval Tests
 Given you have (possibly legacy) code that receives input and creates output,\
-and you want to cover it with unit tests,\
-and you are too lazy to specify the output for each input in your tests,\
+and you want to cover it with regression tests,\
+and you are too lazy to specify the output for each input in your unit tests,\
 then you should use Approval Tests.
 
 ## Usage
@@ -68,8 +68,10 @@ You have a function that takes, for example, three arguments,
 and you want to test its behaviour with a bunch of different values 
 for each of those arguments.
 
-Specify the input arguments of the method you want to test.
-Use explicit arrays or `range()` as in the example to add all values the arguments can take.
+Copy the below code example and adjust the number and type of inputs that you have.
+Specify the input arguments of the method you want to test in `$arguments`:
+Either list the values that the arguments can take explicitly in arrays 
+or use `range()`.
 Then pass those arguments along with an anonymous function into
 `CombinationApprovals::create()->verifyAllCombinations()`
 
@@ -78,7 +80,7 @@ public function testUpdateQualityWithCombinations(): void
 {
     $arguments = [
         ['foo', 'bar'],
-        range(0, 5),
+        range(0, 3),
         [15, 20, 25],
     ];
 
@@ -102,10 +104,30 @@ For the above example, the Approval tool would create all possible combinations
 of the specified input values, map those to the related output of the tested logic
 and dump it into the received.txt as such:
 ```
-[foo, 5, 15] -> [foo, 4, 14]
+[bar, 3, 25] -> [bar, 2, 24]
+[bar, 3, 20] -> [bar, 2, 19]
+[bar, 3, 15] -> [bar, 2, 14]
+[bar, 2, 25] -> [bar, 1, 24]
+[bar, 2, 20] -> [bar, 1, 19]
+[bar, 2, 15] -> [bar, 1, 14]
+[bar, 1, 25] -> [bar, 0, 24]
+[bar, 1, 20] -> [bar, 0, 19]
+[bar, 1, 15] -> [bar, 0, 14]
+[bar, 0, 25] -> [bar, -1, 23]
+[bar, 0, 20] -> [bar, -1, 18]
+[bar, 0, 15] -> [bar, -1, 13]
+[foo, 3, 25] -> [foo, 2, 24]
+[foo, 3, 20] -> [foo, 2, 19]
 [foo, 3, 15] -> [foo, 2, 14]
-[bar, 5, 15] -> [bar, 2, 16]
-[bar, 3, 15] -> [bar, 4, 16]
+[foo, 2, 25] -> [foo, 1, 24]
+[foo, 2, 20] -> [foo, 1, 19]
+[foo, 2, 15] -> [foo, 1, 14]
+[foo, 1, 25] -> [foo, 0, 24]
+[foo, 1, 20] -> [foo, 0, 19]
+[foo, 1, 15] -> [foo, 0, 14]
+[foo, 0, 25] -> [foo, -1, 23]
+[foo, 0, 20] -> [foo, -1, 18]
+[foo, 0, 15] -> [foo, -1, 13]
 ```
 
 ## How to run
