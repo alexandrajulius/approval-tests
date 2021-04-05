@@ -6,12 +6,6 @@ namespace AHJ\ApprovalTests;
 
 final class ReceivedMap
 {
-    /**
-     * @param array $input
-     * @param mixed $output
-     * @param bool $plain
-     * @return string
-     */
     public function create(array $input, $output, bool $plain = false): string
     {
         $receivedMap = [];
