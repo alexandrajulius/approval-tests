@@ -42,9 +42,9 @@ the previous version of this data by performing an `Assert::assertEquals($approv
 
 Pass an empty array as `$input` if your logic doesn't require input:
 ```php
-    (...)
+
     Approvals::create()->verifyList([], $output);
-    (...)
+
 ```
 Then run phpunit:
 ```
