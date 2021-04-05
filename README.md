@@ -42,9 +42,7 @@ the previous version of this data by performing an `Assert::assertEquals($approv
 
 Pass an empty array as `$input` if your logic doesn't require input:
 ```php
-
     Approvals::create()->verifyList([], $output);
-
 ```
 Then run phpunit:
 ```
@@ -79,7 +77,7 @@ and you want to test its behaviour with a bunch of different values
 for each of those arguments.
 
 Copy the below code or use this repo's [example](https://github.com/alexandrajulius/approval-tests/blob/main/tests/Example/GildedRoseCombinationsTest.php) 
-and adjust the number and type of inputs that you have.
+and adjust the number and type of inputs for your use case.
 Specify the input arguments of the method you want to test in `$arguments`:
 Either list the values that the arguments can take explicitly in arrays 
 or use `range()`.
