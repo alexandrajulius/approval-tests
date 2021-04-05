@@ -91,8 +91,20 @@ non formated output in the `received.txt`:
 ```php
     Approvals::create()->verifyList([], $output, true);
 ```
-
-
+Depending on the type of `$output` there will either be a plain or json encoded string in the `received.txt`.
+For objects or arrays it will be:
+```
+{"dirPath":"bar","fileNumber":10,"randomList":[]},{"dirPath":"bar","fileNumber":100,"randomList":[]}
+```
+For a string it will be:
+```
++--------------+-------------+--------+--------+------+-----+------------+---------+---------+---------+---------+---------+--------+-------+
+| benchmark    | subject     | groups | params | revs | its | mem_peak   | best    | mean    | mode    | worst   | stdev   | rstdev | diff  |
++--------------+-------------+--------+--------+------+-----+------------+---------+---------+---------+---------+---------+--------+-------+
+| HashingBench | benchMd5    |        | []     | 1000 | 10  | 1,255,792b | 0.931μs | 0.979μs | 0.957μs | 1.153μs | 0.062μs | 6.37%  | 1.00x |
+| HashingBench | benchSha1   |        | []     | 1000 | 10  | 1,255,792b | 0.988μs | 1.015μs | 1.004μs | 1.079μs | 0.026μs | 2.57%  | 1.04x |
++--------------+-------------+--------+--------+------+-----+------------+---------+---------+---------+---------+---------+--------+-------+
+```
 
 
 ## Testing Combinations
