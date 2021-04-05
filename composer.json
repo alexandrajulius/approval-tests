@@ -1,7 +1,14 @@
 {
   "name": "ahj/approval-tests",
   "type": "library",
-  "description": "Provides approval tests ",
+  "description": "Approval Tests",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Alex Julius",
+      "email": "alexandra.julius@gmail.com"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "AHJ\\ApprovalTests\\": "src/"
