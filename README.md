@@ -20,8 +20,10 @@ and you don't want to adjust all the tested output after you changed the logic,\
 then you should use Approval Tests.
 
 ## Usage
-Create a test as in this repo's [example](https://github.com/alexandrajulius/approval-tests/blob/main/tests/Example/GildedRoseTest.php) given in this repository.\
-Specify the input for your logic, get the output and pass it into\
+Find an example on how to do Approval Testing under [/tests/Example](https://github.com/alexandrajulius/approval-tests/tree/main/tests/Example). \
+
+Create a test with phpunit, specify the input for your logic, store the output in a 
+variable and pass it into\
 `Approvals::create()->verifyList($input, $output)`.\
 This method will handle two arrays of whatever you put in there 
 and internally perform an `Assert::assertEquals($approved, $received)`:
@@ -45,7 +47,7 @@ Then run phpunit:
 ```
 $ vendor/bin/phpunit tests
 ```
-Then you will see a new directory in your test directory with two files in it:
+Then you will see a new directory in your test directory that contains two files:
 ```
 /approval
   |__ approved.txt
