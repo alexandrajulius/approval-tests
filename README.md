@@ -36,7 +36,7 @@ public function testUpdateQuality(): void
     Approvals::create()->verifyList($input, $output);
 }
 ```
-You can pass an empty array as `$input` if your logic doesn't require input such as
+Pass an empty array as `$input` if your logic doesn't require input:
 ```php
     Approvals::create()->verifyList([], $output);
 ```
