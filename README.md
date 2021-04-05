@@ -20,13 +20,11 @@ and you don't want to adjust all the tested output after you changed the logic,\
 then you should use Approval Tests.
 
 ## Usage
-Find an example on how to do Approval Testing under [/tests/Example](https://github.com/alexandrajulius/approval-tests/tree/main/tests/Example). \
+Find an example on how to do Approval Testing under [/tests/Example](https://github.com/alexandrajulius/approval-tests/tree/main/tests/Example). 
 
 Create a test with phpunit, specify the input for your logic, store the output in a 
 variable and pass it into\
-`Approvals::create()->verifyList($input, $output)`.\
-This method will handle two arrays of whatever you put in there 
-and internally perform an `Assert::assertEquals($approved, $received)`:
+`Approvals::create()->verifyList($input, $output)`:
 ```php
 public function testUpdateQuality(): void
 {
@@ -39,9 +37,14 @@ public function testUpdateQuality(): void
     Approvals::create()->verifyList($input, $output);
 }
 ```
+`verifyList($input, $output)` will create a map of the received data and compare it to 
+the previous version of this data by performing an `Assert::assertEquals($approved, $received)`.
+
 Pass an empty array as `$input` if your logic doesn't require input:
 ```php
+    (...)
     Approvals::create()->verifyList([], $output);
+    (...)
 ```
 Then run phpunit:
 ```
