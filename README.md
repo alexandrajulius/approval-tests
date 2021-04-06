@@ -16,7 +16,7 @@
 # Approval Tests
 
 ## Why to use Approval Tests
-Given you have (possibly legacy) code that receives input and creates output,\
+Given you have (possibly legacy) code,\
 and you want to cover it with regression tests,\
 and you don't want to specify the output for each input in your unit tests,\
 and you don't want to adjust all the tested output after you changed the logic,\
