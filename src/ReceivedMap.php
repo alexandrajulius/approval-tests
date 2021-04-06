@@ -16,16 +16,16 @@ final class ReceivedMap
             }
         }
 
-        if (!$plain) {
-            foreach ($output as $outputKey => $outputValue) {
-                if (!empty($input)) {
-                    $receivedMap[$outputKey] = $receivedMap[$outputKey] . '[' . $this->serializeMixedType($outputValue) . ']';
-                } else {
-                    $receivedMap[$outputKey] = '[' . $this->serializeMixedType($outputValue) . ']';
-                }
-            }
-        } else {
+        if ($plain) {
             return 'string' === gettype($output) ? $output : json_encode($output);
+        }
+
+        foreach ($output as $outputKey => $outputValue) {
+            if (!empty($input)) {
+                $receivedMap[$outputKey] = $receivedMap[$outputKey] . '[' . $this->serializeMixedType($outputValue) . ']';
+            } else {
+                $receivedMap[$outputKey] = '[' . $this->serializeMixedType($outputValue) . ']';
+            }
         }
 
         return $this->cleanAndFlatten($receivedMap);

@@ -60,7 +60,7 @@ final class ReceivedMapTest extends TestCase
 [foo, 10, []] -> [bar, 100, []]',
         ];
 
-        yield 'object without formatting' => [
+        yield 'object without input and formatting' => [
             'input' => [
                 new RandomObject('foo', 0, []),
                 new RandomObject('foo', 10, []),
